@@ -38,4 +38,19 @@
 		 });
 	  return words;
   }
+  /*
+	Needed to implement sass-based framework for a cleaner presentation, but I didn't have enough time.
+  */
+  function createTagPresentation(){
+	  
+	  var words = getWordsOnPage(3);
+	  /* 
+		Sort the words in descending order of occurrence.
+	  */ 
+	  
+	  
+	  /*
+		For each word, dynamically create the needed CSS to be outputted to the page.
+	  */
+  }
 })();
