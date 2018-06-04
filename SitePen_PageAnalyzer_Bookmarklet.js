@@ -39,7 +39,7 @@
 		 });
 	  return words;
   }
-  function sort(mapObj,type='key',sortDir='asc'){
+  function mapSort(mapObj,type='key',sortDir='asc'){
 	
 	var mapArr = mapToArray(mapObj),
 		sortedMap = new Map();
