@@ -28,7 +28,7 @@
 			
 			word = /\S/.test(txt);
 			
-			if(word && word.length > wordLenToIgnore){
+			if(word && txt.length > wordLenToIgnore){
 				if (words.has(txt)){
 					wordCount = words.get(txt) + 1;
 					words.set(txt, wordCount);
