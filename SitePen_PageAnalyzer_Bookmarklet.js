@@ -41,7 +41,7 @@
   }
   function mapSort(mapObj,type='key',sortDir='asc'){
 	
-	var mapArr = mapToArray(mapObj),
+	var mapArr = Array.from(mapObj),
 		sortedMap = new Map();
 	
 	if(type==='key' && sortDir==='asc'){
@@ -63,17 +63,6 @@
 	
 	return sortedMap;
   }
-  function mapToArray(map){
-	var mapArray = [];
-	
-	if(map.size > 0){
-		var iterator = map.entries();
-		while(iterator.next()){
-			mapArray.push(iterator.next());
-		}
-	}
-	return mapArray;
-  }  
   /*
 	Needed to implement sass-based framework for a cleaner presentation, but I didn't have enough time.
   */
