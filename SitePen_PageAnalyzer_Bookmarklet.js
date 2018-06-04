@@ -9,8 +9,8 @@
   var jsCode = document.createElement('script'); 
       jsCode.setAttribute('src', 'https://github.com/hhlawr1958/PageAnalyzer/SitePen_PageAnalyzer_Bookmarklet.js');              
       document.body.appendChild(jsCode);
-  // End of self-updating code
-  //
+  /* End of self-updating code*/
+  
   /*
 	Assumptions and Notes:
 	(1) document.body.innerText does not work in Firefox. I didn't have time to check what works with other browsers apart from Chrome. 
