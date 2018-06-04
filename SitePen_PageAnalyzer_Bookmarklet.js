@@ -3,6 +3,7 @@
 	Created By: Horace Lawrence
 */
 (function(){
+  "use strict";
   /*
 	Make the bookmarklet self-updating.
   */
