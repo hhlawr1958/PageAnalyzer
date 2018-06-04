@@ -39,6 +39,41 @@
 		 });
 	  return words;
   }
+  function sort(mapObj,type='key',sortDir='asc'){
+	
+	var mapArr = mapToArray(mapObj),
+		sortedMap = new Map();
+	
+	if(type==='key' && sortDir==='asc'){
+	  mapArr.sort((a,b)=> {return a.key < b.key;});
+	}
+	if(type==='key' && sortDir==='desc'){
+	  mapArr.sort((a,b)=> {return a.key > b.key;});
+	}
+	if(type==='value' && sortDir==='asc'){
+	  mapArr.sort((a,b)=> {return a.value < b.value;});
+	}
+	if(type==='value' && sortDir==='desc'){
+	  mapArr.sort((a,b)=> {return a.value > b.value;});
+	}
+	
+	for(keyValuePair in mapArr){
+		sortedMap.set(keyValuePair);
+	}
+	
+	return sortedMap;
+  }
+  function mapToArray(map){
+	var mapArray = [];
+	
+	if(map.size > 0){
+		var iterator = map.entries();
+		while(iterator.next()){
+			mapArray.push(iterator.next());
+		}
+	}
+	return mapArray;
+  }  
   /*
 	Needed to implement sass-based framework for a cleaner presentation, but I didn't have enough time.
   */
