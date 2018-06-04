@@ -11,5 +11,30 @@
       document.body.appendChild(jsCode);
   // End of self-updating code
   //
-  
+  /*
+	Assumptions: 
+	(1) document.body.innerText does not work in Firefox. I didn't have time to check what works with other browsers apart from Chrome. 
+	    Needed to do browser-checking to make this more robust.
+	(2) Calling the function getWordsOnPage would return a Map with all the words and a count of the frequency of use.
+  */
+  function getWordsOnPage(){
+	  
+	  var words = new Map(),
+		  wordCount = 0,
+		  word = '',
+		  wordsOnPage = document.body.innerText.split(/\s/).filter(function (txt){
+			
+			word = /\S/.test(txt);
+			
+			if(word && word.length > 0){
+				if (words.has(txt)){
+					wordCount = words.get(txt) + 1;
+					words.set(txt, wordCount);
+				}else{
+					words.set(txt, 1);
+				}
+			}
+		 });
+	  return words;
+  }
 })();
