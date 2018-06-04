@@ -12,12 +12,13 @@
   // End of self-updating code
   //
   /*
-	Assumptions: 
+	Assumptions and Notes:
 	(1) document.body.innerText does not work in Firefox. I didn't have time to check what works with other browsers apart from Chrome. 
 	    Needed to do browser-checking to make this more robust.
 	(2) Calling the function getWordsOnPage would return a Map with all the words and a count of the frequency of use.
+	(3) Pass in an integer for the length of the words to ignore.
   */
-  function getWordsOnPage(){
+  function getWordsOnPage(wordLenToIgnore = 0){
 	  
 	  var words = new Map(),
 		  wordCount = 0,
@@ -26,7 +27,7 @@
 			
 			word = /\S/.test(txt);
 			
-			if(word && word.length > 0){
+			if(word && word.length > wordLenToIgnore){
 				if (words.has(txt)){
 					wordCount = words.get(txt) + 1;
 					words.set(txt, wordCount);
