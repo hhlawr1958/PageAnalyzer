@@ -45,13 +45,33 @@
 		sortedMap = new Map();
 	
 	if(type==='key' && sortDir==='asc'){
-	  mapArr.sort((a,b)=> {return a.key < b.key});
+	  mapArr.sort((a,b)=> {
+		  if(a.key < b.key) {
+			  return -1;
+		  }else if(a.key > b.key) {
+			  return 1;
+	  }else return 0});
 	}else if(type==='key' && sortDir==='desc'){
-	  mapArr.sort((a,b)=> {return a.key > b.key});
+	  mapArr.sort((a,b)=> {
+		  if(a.key > b.key) {
+			  return -1;
+		  }else if(a.key < b.key) {
+			  return 1;
+	  }else return 0});
 	}else if(type==='value' && sortDir==='asc'){
-	  mapArr.sort((a,b)=> {return a.value < b.value});
+	  mapArr.sort((a,b)=> {
+		  if(a.value < b.value) {
+			  return -1;
+		  }else if(a.value > b.value) {
+			  return 1;
+	  }else return 0});
 	}else if(type==='value' && sortDir==='desc'){
-	  mapArr.sort((a,b)=> {return a.value > b.value});
+	  mapArr.sort((a,b)=> {
+		  if(a.value > b.value) {
+			  return -1;
+		  }else if(a.value < b.value) {
+			  return 1;
+	  }else return 0});
 	}
 	
 	for(var i = 0; i < mapArr.length; i++){		
