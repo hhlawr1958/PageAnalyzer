@@ -41,27 +41,32 @@
   }
   function mapSort(mapObj,type='key',sortDir='asc'){
 	
-	var mapArr = Array.from(mapObj),
+	var mapArr = mapToArray(mapObj),
 		sortedMap = new Map();
 	
 	if(type==='key' && sortDir==='asc'){
-	  mapArr.sort((a,b)=> {return a.key < b.key;});
-	}
-	if(type==='key' && sortDir==='desc'){
-	  mapArr.sort((a,b)=> {return a.key > b.key;});
-	}
-	if(type==='value' && sortDir==='asc'){
-	  mapArr.sort((a,b)=> {return a.value < b.value;});
-	}
-	if(type==='value' && sortDir==='desc'){
-	  mapArr.sort((a,b)=> {return a.value > b.value;});
+	  mapArr.sort((a,b)=> {return a.key < b.key});
+	}else if(type==='key' && sortDir==='desc'){
+	  mapArr.sort((a,b)=> {return a.key > b.key});
+	}else if(type==='value' && sortDir==='asc'){
+	  mapArr.sort((a,b)=> {return a.value < b.value});
+	}else if(type==='value' && sortDir==='desc'){
+	  mapArr.sort((a,b)=> {return a.value > b.value});
 	}
 	
-	for(keyValuePair in mapArr){
-		sortedMap.set(keyValuePair);
+	for(var i = 0; i < mapArr.length; i++){		
+		sortedMap.set(mapArr[i].key,mapArr[i].value);
 	}
 	
 	return sortedMap;
+  }
+  function mapToArray(map){
+	var mapArray = [];
+		
+	for (let [ key, val ] of map.entries()){
+      mapArray.push({key,value:val});
+	}
+	return mapArray;
   }
   /*
 	Needed to implement sass-based framework for a cleaner presentation, but I didn't have enough time.
