@@ -46,13 +46,45 @@
             sortedMap = new Map();
 
         if (type === 'key' && sortDir === 'asc') {
-            mapArr.sort((a, b) => { a.key < b.key ? -1 : a.key > b.key ? 1 : 0 });
+            mapArr.sort((a, b) => {
+                if (a.key < b.key) {
+                    return -1;
+                } else if (a.key > b.key) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
         } else if (type === 'key' && sortDir === 'desc') {
-            mapArr.sort((a, b) => { a.key > b.key ? -1 : a.key < b.key ? 1 : 0 });
+            mapArr.sort((a, b) => {
+                if (a.key > b.key) {
+                    return -1;
+                } else if (a.key < b.key) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
         } else if (type === 'value' && sortDir === 'asc') {
-            mapArr.sort((a, b) => { a.value < b.value ? -1 : a.value > b.value ? 1 : 0 });
+            mapArr.sort((a, b) => {
+                if (a.value < b.value) {
+                    return -1;
+                } else if (a.value > b.value) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
         } else if (type === 'value' && sortDir === 'desc') {
-            mapArr.sort((a, b) => { a.value > b.value ? -1 : a.value < b.value ? 1 : 0 });
+            mapArr.sort((a, b) => {
+                if (a.value > b.value) {
+                    return -1;
+                } else if (a.value < b.value) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
         }
 
         for (var i = 0; i < mapArr.length; i++) {
