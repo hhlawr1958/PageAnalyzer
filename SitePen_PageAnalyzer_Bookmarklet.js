@@ -138,14 +138,13 @@
     /*
 	Needed to implement sass-based framework for a cleaner presentation, but I didn't have enough time.
   */
-    function createTagPresentation() {
+    function createTagPresentation(wordLen) {
 
-        var words = getWordsOnPage(3);
+        var words = getWordsOnPage(wordLen);
         /* 
 		Sort the words in descending order of occurrence.
 	  */
-
-
+        words = mapSort(words, 'value', 'desc');
         /*
 		For each word, dynamically create the needed CSS to be outputted to the page.
 	  */
