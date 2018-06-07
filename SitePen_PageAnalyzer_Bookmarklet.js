@@ -24,7 +24,7 @@
         var words = new Map(),
             wordCount = 0,
             word = '',
-            wordsOnPage = document.body.innerText.split(/\s/).filter(function(txt) {
+            wordsOnPage = getPlainText().split(/\s/).filter(function(txt) {
 
                 word = /\S/.test(txt);
 
@@ -103,10 +103,28 @@
         return mapArray;
     }
 
-    function getWordsOnCurrentBrowserPage() {
-        var words = "";
+    function getPlainText() {
+        var nodeList = document.querySelectorAll('body * :not(img) :not(script)'),
+            docText = "",
+            nodeElements;
 
-        return words;
+        nodeList.forEach(function(node) {
+            if (!isHidden(node)) {
+                nodeElements = node.querySelectorAll('* :not(img) :not(script)');
+                nodeElements.forEach(function(nodeEl) {
+                    if (!isHidden(nodeEl)) {
+                        docText += " " + nodeEl.innerHTML.replace(/<[^>]+>/g, ' ');
+                    }
+                });
+            }
+        });
+
+        return docText;
+    }
+
+    function isHidden(el) {
+        var style = window.getComputedStyle(el);
+        return ((style.display === 'none') || (style.visibility === 'hidden'));
     }
 
     function isES6Supported() {
