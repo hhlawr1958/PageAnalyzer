@@ -8,7 +8,7 @@
 	Make the bookmarklet self-updating.
   */
     var jsCode = document.createElement('script');
-    jsCode.setAttribute('src', 'https://github.com/hhlawr1958/PageAnalyzer/SitePen_PageAnalyzer_Bookmarklet.js');
+    jsCode.setAttribute('src', 'https://github.com/hhlawr1958/PageAnalyzer/PageAnalyzer_Bookmarklet.js');
     document.body.appendChild(jsCode);
     /* End of self-updating code*/
 
