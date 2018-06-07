@@ -113,6 +113,9 @@
                 nodeElements = node.querySelectorAll('* :not(img) :not(script)');
                 nodeElements.forEach(function(nodeEl) {
                     if (!isHidden(nodeEl)) {
+                        /*
+                          Exclude all html strings, only get the text value of the node element
+                        */
                         docText += " " + nodeEl.innerHTML.replace(/<[^>]+>/g, ' ');
                     }
                 });
