@@ -114,7 +114,7 @@
                 nodeElements.forEach(function(nodeEl) {
                     if (!isHidden(nodeEl)) {
                         /*
-                          Exclude all html strings, only get the text value of the node element
+                          Exclude all html strings, only get the readable text value of the node element
                         */
                         docText += " " + nodeEl.innerHTML.replace(/<[^>]+>/g, ' ');
                     }
